@@ -1,6 +1,6 @@
 package at.fhtw.swen2.tutorial.presentation.view;
 
-import at.fhtw.swen2.tutorial.presentation.viewmodel.PersonListViewModel;
+import at.fhtw.swen2.tutorial.presentation.viewmodel.TourListViewModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -16,10 +16,10 @@ import java.util.ResourceBundle;
 
 @Component
 @Scope("prototype")
-public class PersonListView implements Initializable{
+public class TourListView implements Initializable{
 
     @Autowired
-    public PersonListViewModel personListViewModel;
+    public TourListViewModel tourListViewModel;
 
     @FXML
     public TableView tableView = new TableView<>();
@@ -28,19 +28,25 @@ public class PersonListView implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle rb){
-        tableView.setItems(personListViewModel.getPersonListItems());
+        tableView.setItems(tourListViewModel.getTourListItems());
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
         TableColumn id = new TableColumn("ID");
         id.setCellValueFactory(new PropertyValueFactory("id"));
         TableColumn name = new TableColumn("NAME");
         name.setCellValueFactory(new PropertyValueFactory("name"));
-        TableColumn employed = new TableColumn("EMPLOYED");
-        employed.setCellValueFactory(new PropertyValueFactory("isEmployed"));
-        tableView.getColumns().addAll(id, name, employed);
+        TableColumn description = new TableColumn("DESCRIPTION");
+        description.setCellValueFactory(new PropertyValueFactory("description"));
+        TableColumn start = new TableColumn("START");
+        start.setCellValueFactory(new PropertyValueFactory("start"));
+        TableColumn destination = new TableColumn("DESTINATION");
+        start.setCellValueFactory(new PropertyValueFactory("destination"));
+        TableColumn transportType = new TableColumn("TRANSPORT_TYPE");
+        start.setCellValueFactory(new PropertyValueFactory("transportType"));
+        tableView.getColumns().addAll(id, name, description, start, destination, transportType);
 
         dataContainer.getChildren().add(tableView);
-        personListViewModel.initList();
+        tourListViewModel.initList();
     }
 
 }

@@ -9,19 +9,32 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Button?>
 
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="200.0" prefWidth="200.0"
       spacing="8.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="at.fhtw.swen2.tutorial.presentation.view.NewPersonView">
+      fx:controller="at.fhtw.swen2.tutorial.presentation.view.NewTourView">
 
    <children>
-      <Label text="%tab.demo.title">
+      <Label text="%tab.tour.title">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
       <Separator prefWidth="200.0" />
-      <Text text="new Person"/>
+      <Text text="new Tour"/>
+      <Text text="Name:"/>
       <TextField fx:id="nameTextField"/>
+      <Text text="Description:"/>
+      <TextField fx:id="descriptionTextField"/>
+      <Text text="Start:"/>
+      <TextField fx:id="startTextField"/>
+      <Text text="Destination:"/>
+      <TextField fx:id="destinationTextField"/>
+      <Text text="Transport Type:"/>
+      <TextField fx:id="transportTypeTextField"/>
+
       <Button fx:id="submitButton" onAction="#submitButtonAction" text="insert"/>
       <Separator prefWidth="200.0" />
       <Text fx:id="feedbackText" />
